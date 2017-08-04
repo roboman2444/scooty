@@ -55,7 +55,7 @@ extern "C" int main(void)
 
 
 	pinMode(13, OUTPUT);
-	myservo.attach(23, 1000, 2000);
+	myservo.attach(20, 1000, 2000);
 	int i;
 	for(i = 0; 1; i++) {
 		newpin[0] = digitalRead(1);
@@ -63,7 +63,7 @@ extern "C" int main(void)
 		newpin[2] = digitalRead(9);
 		newpin[3] = digitalRead(11);
 
-		int input = analogRead(22);
+		int input = analogRead(23);
 
 		int val = ((input - calib_low) * 180) / calib_delt;
 		if(val <0) val=0; else if(val > 180) val = 180;
@@ -72,7 +72,7 @@ extern "C" int main(void)
 			Serial.println(calib_low);
 			Serial.print("high is: ");
 			Serial.println(calib_high);
-			Serial.print("analog 22 is: ");
+			Serial.print("analog 23 is: ");
 			Serial.println(input);
 			Serial.print("pwm is: ");
 			Serial.println(val);
